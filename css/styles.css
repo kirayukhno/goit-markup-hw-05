@@ -350,6 +350,9 @@ section {
     display: inline-block;
     margin-bottom: 16px;
 }
+.footer-social-links{
+    margin-right: 80px;
+}
 .footer-social-links .social-links-list{
     display: flex;
     justify-content: center;
@@ -371,6 +374,56 @@ section {
 .footer .social-link:hover, .footer .social-link:focus{
     background-color: #31d0aa;
 }
+.footer-form-title{
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.footer-form{
+    display: flex;
+    gap: 24px;
+}
+.footer-user-email{
+    border: 1px solid #fff;
+    border-radius: 4px;
+    width: 264px;
+    height: 40px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: #fff;
+    padding: 8px 16px;
+    outline: none;
+}
+.footer-user-email::placeholder{
+    color: #fff;
+}
+.footer-form-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 8px 24px;
+    min-width: 165px;
+    height: 40px;
+    background-color: #4d5ae5;
+    border: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-form-btn:hover, .footer-form-btn:focus{
+    background-color: #404bbf;
+}
+.footer-email-icon{
+    margin-left: 16px;
+    fill: #fff;
+}
 
 .backdrop{
     background: rgba(46, 47, 66, 0.4);
@@ -380,9 +433,6 @@ section {
     width: 100%;
     height: 100%;
     z-index: 999;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -401,6 +451,7 @@ section {
     min-height: 584px;
     padding: 24px;
     padding-top: 72px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-open{
     opacity: 1;
@@ -414,7 +465,10 @@ section {
     margin-bottom: 16px;
 }
 .modal-close{
-    border: 1px solid rgba(46, 47, 66, 0.4);
+    background-color: #e7e9fc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    cursor: pointer;
     border-radius: 50%;
     width: 24px;
     height: 24px;
@@ -424,22 +478,31 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close:hover, .modal-close:focus{
     background-color: #404bbf;
+    border: none;
+}
+.close{
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close:hover .close, .modal-close:focus .close{
     fill: #e7e9fc;
 }
 .form-wrapper-cont {
     margin-bottom: 8px;
 }
+.form-wrapper-cont:nth-child(4){
+    margin-bottom: 16px;
+}
 .form-user-label {
     font-size: 12px;
-    line-height: 1.167;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .form-user-input {
@@ -448,8 +511,9 @@ section {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
     padding-left: 38px;
-    outline: none;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: transparent;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-user-input:focus{
     border: 1px solid #4d5ae5;
@@ -470,17 +534,22 @@ section {
     position: relative;
 }
 .form-user-comment{
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+    background-color: transparent;
     width: 100%;
     resize: none;
     min-height: 120px;
-    outline: none;
+    outline: transparent;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     padding: 8px 16px;
 }
 .form-user-comment:focus{
-    border: 1px solid #404bbf;
+    border-color: 1px solid #404bbf;
 }
 .form-user-comment::placeholder{
     font-size: 12px;
@@ -499,22 +568,20 @@ section {
     justify-content: center;
     align-items: center;
     fill: transparent;
+    margin-right: 8px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .user-checkbox:checked + .form-user-checkbox .custom-checkbox{
     border: transparent;
-    background-color: #4d5ae5;
-    fill:#e7e9fc;
+    background-color: #404bbf;
+    fill:#f4f4fd;
 }
 
 .form-user-checkbox {
     font-size: 12px;
-    line-height: 1.167;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
-}
-
-.custom-checkbox {
-    margin-right: 8px;
 }
 .checkbox-link {
     line-height: 1.33333;
